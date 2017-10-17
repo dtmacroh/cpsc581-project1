@@ -49,3 +49,12 @@ C:\Users\Debbie\Documents\cpsc581\project1\RFID\RFID\bin\Debug\audio\youre_fanta
 C:\Users\Debbie\Documents\cpsc581\project1\RFID\RFID\bin\Debug\audio\whatsnew.wav
 C:\Users\Debbie\Documents\cpsc581\project1\RFID\RFID\bin\Debug\audio\caliente.wav
 C:\Users\Debbie\Documents\cpsc581\project1\RFID\RFID\bin\Debug\audio\cryout.wav
+C:\Users\Debbie\Documents\cpsc581\project1\RFID\RFID\bin\Debug\audio\sense.wav
+C:\Users\Debbie\Documents\cpsc581\project1\RFID\RFID\bin\Debug\audio\coolnewbadge.wav
+C:\Users\Debbie\Documents\cpsc581\project1\RFID\RFID\bin\Debug\audio\ilikethatbadge.wav
+C:\Users\Debbie\Documents\cpsc581\project1\RFID\RFID\bin\Debug\audio\imsoalive.wav
+C:\Users\Debbie\Documents\cpsc581\project1\RFID\RFID\bin\Debug\audio\interestingchoice.wav
+C:\Users\Debbie\Documents\cpsc581\project1\RFID\RFID\bin\Debug\audio\oneinamillion.wav
+C:\Users\Debbie\Documents\cpsc581\project1\RFID\RFID\bin\Debug\audio\somethingsinlife.wav
+C:\Users\Debbie\Documents\cpsc581\project1\RFID\RFID\bin\Debug\audio\thatsnew.wav
+C:\Users\Debbie\Documents\cpsc581\project1\RFID\RFID\bin\Debug\audio\youok.wav

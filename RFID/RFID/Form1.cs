@@ -40,7 +40,10 @@ namespace RFID_Example {
         private SoundPlayer soundtoPlay =
             new SoundPlayer("audio\\awesome.wav");
         private string nameOfGirl = "Megan";
+        private SoundPlayer sense =
+           new SoundPlayer("audio\\sense.wav");
         Client client;
+        bool whatsnew = false;
         public Form1() {
 			open = new CommandLineOpen(this);
             cleaner = new formCleaner(this);
@@ -125,10 +128,12 @@ namespace RFID_Example {
 
 		//Tag event handler...we'll display the tag code in the field on the GUI
 		void rfid_Tag(object sender, RFIDTagEventArgs e) {
-			//tagTxt.Text = e.Tag;
-			//protoTxt.Text = e.Protocol.GetDescription();
+            //tagTxt.Text = e.Tag;
+            //protoTxt.Text = e.Protocol.GetDescription();
+            
             if (dict.ContainsKey(e.Tag))
             {
+                
                 issued_to_box.Text = dict[e.Tag].issued_to;
                 issue_date_box.Text = dict[e.Tag].issue_date;
                 destinationBox.Text = dict[e.Tag].special_msg;
@@ -143,27 +148,44 @@ namespace RFID_Example {
             }
             currentRFIDTag = e.Tag;
             sendMessage(progressBar.Value);
-            if(progressBar.Value >=0 && progressBar.Value <=50)
+
+
+            if (progressBar.Value >= 0 && progressBar.Value <= 50)
             {
-                int random = RandomInt(1,2);
-                if (random==1)
+                int random = RandomInt(1, 3);
+                if (random == 1)
                 {
                     soundtoPlay = new SoundPlayer("audio\\onestepatatime.wav");
                 }
-                if (random==2)
+                else if (random == 2)
                 {
-                    soundtoPlay = new SoundPlayer("audio\\justalittleways.wav");
+                    soundtoPlay = new SoundPlayer("audio\\letsgo.wav");
+                }
+                else if (random == 3)
+                {
+                    soundtoPlay = new SoundPlayer("audio\\somethingsinlife.wav");
                 }
                 Debug.WriteLine(random);
-                
+
+                  soundtoPlay.Play();
+            }
+            else if (progressBar.Value >= 51 && progressBar.Value <= 99)
+            {
+                soundtoPlay = new SoundPlayer("audio\\justalittleways.wav");
                 soundtoPlay.Play();
             }
-            else
-            {
-                int random = RandomInt(1, 2);
+            else { 
+                int random = RandomInt(1, 4);
+               
                 if (dict[e.Tag].calc_Year() > 2014) //badge is 3 years old
                 {
-                    if (random == 1)
+                    if (whatsnew == true)
+                    {
+                        soundtoPlay = new SoundPlayer("audio\\interestingchoice.wav");
+                        whatsnew = false;
+                        soundtoPlay.Play();
+                    }
+                        if (random == 1)
                     {
                         soundtoPlay = new SoundPlayer("audio\\youre_fantastic.wav");
                     }
@@ -171,18 +193,37 @@ namespace RFID_Example {
                     {
                         soundtoPlay = new SoundPlayer("audio\\good_job.wav");
                     }
-                    
+                    if (random == 3)
+                    {
+                        soundtoPlay = new SoundPlayer("audio\\awesome.wav");
+                    }
+                    if (random == 4)
+                    {
+                        soundtoPlay = new SoundPlayer("audio\\coolnewbadge.wav");
+                    }
                 }
                 else
                 {
-                    //if (random == 1)
-                    //{
+                    
+                    if (random == 1)
+                    {
                         soundtoPlay = new SoundPlayer("audio\\whatsnew.wav");
-                    //}
-                    //if (random == 2)
-                    //{
-                    //    soundtoPlay = new SoundPlayer("audio\\good_job.wav");
-                    //}
+                        whatsnew = true;
+                    }
+                    else if (random == 2)
+                    {
+                        soundtoPlay = new SoundPlayer("audio\\awesome.wav");
+                    }
+                    else if (random == 3)
+                    {
+                        soundtoPlay = new SoundPlayer("audio\\good_job.wav");
+                    }
+                    else if (random == 4)
+                    {
+                        soundtoPlay = new SoundPlayer("audio\\ilikethatbadge.wav");
+                    }
+
+
                 }
                 soundtoPlay.Play();
                 
@@ -336,6 +377,7 @@ namespace RFID_Example {
                 }
                 else if (power==3)
                 {
+                    random = RandomInt(1, 3);
                     Debug.WriteLine("medium squeeze");
                     if (random == 1)
                     {
@@ -347,12 +389,18 @@ namespace RFID_Example {
                         soundtoPlay = new SoundPlayer("audio\\onestepatatime.wav");
                         soundtoPlay.Play();
                     }
-                    
-                    
+                    else if (random == 3)
+                    {
+                        soundtoPlay = new SoundPlayer("audio\\imsoalive.wav");
+                        soundtoPlay.Play();
+                    }
+
+
+
                 }
                 else if (power ==4)
                 {
-                    random = RandomInt(1, 3);
+                    random = RandomInt(1, 4);
                     Debug.WriteLine("big squeeze");
                     if (random==1)
                     {
@@ -368,6 +416,13 @@ namespace RFID_Example {
                     {
                         soundtoPlay = new SoundPlayer("audio\\cryout.wav");
                         soundtoPlay.Play();
+
+                    }
+                    else if (random == 4)
+                    {
+                        soundtoPlay = new SoundPlayer("audio\\youok.wav");
+                        soundtoPlay.Play();
+
                     }
 
                 }

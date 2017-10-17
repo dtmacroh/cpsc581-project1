@@ -45,11 +45,15 @@ void loop()
       mess =1;
     } else if (fsrReading < 500) {
       Serial.println(" - Light squeeze");
+       strip.setPixelColor(0, 0,255 , 0);
+      strip.show();
+      delay(100);
       mess = 2;
     } else if (fsrReading < 800) {
       Serial.println(" - Medium squeeze");
       strip.setPixelColor(0, 255,165 , 0);
       strip.show();
+      delay(100);
       mess = 3;
     } else {
       delay(100);
@@ -65,9 +69,7 @@ void loop()
       Serial.println(" - Big squeeze");
       mess = 4;
     }
-    delay(100);
-  }
-    if (mess>1){
+     if (mess>1){
     Message* m = new Message("force");
     m->deliverToSelf = true;
     m->addField("num1", new String(13));
@@ -80,10 +82,15 @@ void loop()
     sendMessage(*m);
     delete m;
     mess=0;
-    }
-    //delay(100);
     strip.setPixelColor(0, 0,1 , 0);
     strip.show();
+    //delay(200);
+    }
+    delay(1000);
+  }
+   
+    
+   
   //send message demo
     
     
