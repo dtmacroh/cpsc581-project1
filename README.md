@@ -21,7 +21,7 @@ http://www.instructables.com/id/Demystifying-4-pin-addressable-RGB-LEDS/
 Base code is taken from:
 https://www.phidgets.com/downloads/phidget22/examples/dotnet/csharp/RFID/Phidget22_RFID_CSharp_Windows_Ex.zip
 
-#How to Run Everything
+# How to Run Everything
 
 1. Open up RFID Visual Studio solution and run it.
 2. Open up Arduino IDE and open the network_force solution. Select the Upload button.
